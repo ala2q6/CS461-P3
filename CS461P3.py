@@ -38,7 +38,7 @@ if (__name__ == '__main__'):
     nn.fit(validation_split = 0.15,
            x = xTrain, y = yTrain,
            batch_size = 32,
-           epochs = 10,
+           epochs = 100,
            verbose = 2)
 
     # >
@@ -46,7 +46,9 @@ if (__name__ == '__main__'):
     # Predicting <
     yPred = nn.predict(xTest)
     np.set_printoptions(precision = 2)
-    print(np.concatenate((yPred.reshape(len(yPred),1), yTest.reshape(len(yTest),1)),1))
+    output = pd.DataFrame(yPred, columns = ['math', 'reading', 'writing'])
+
+    print(output)
 
     # >
 
