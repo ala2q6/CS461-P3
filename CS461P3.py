@@ -26,7 +26,7 @@ if (__name__ == '__main__'):
     nn = tf.keras.models.Sequential()
 
     nn.add(tf.keras.layers.Dense(units = 60))
-    nn.add(tf.keras.layers.Dense(units = 180))
+    nn.add(tf.keras.layers.Dense(units = 30))
 
     nn.add(tf.keras.layers.Dense(units = 3))
 
