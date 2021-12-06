@@ -25,15 +25,15 @@ if (__name__ == '__main__'):
     # Building <
     nn = tf.keras.models.Sequential()
 
-    nn.add(tf.keras.layers.Dense(units = 12, activation = 'relu'))
-    nn.add(tf.keras.layers.Dense(units = 12, activation = 'relu'))
+    nn.add(tf.keras.layers.Dense(units = 60))
+    nn.add(tf.keras.layers.Dense(units = 180))
 
     nn.add(tf.keras.layers.Dense(units = 3))
 
     # >
 
     # Training <
-    nn.compile(optimizer = 'adam', loss = 'mean_squared_error')
+    nn.compile(optimizer = 'adam', loss = 'mean_squared_error', metrics = ['accuracy'])
 
     nn.fit(validation_split = 0.15,
            x = xTrain, y = yTrain,
@@ -48,6 +48,7 @@ if (__name__ == '__main__'):
     np.set_printoptions(precision = 2)
     output = pd.DataFrame(yPred, columns = ['math', 'reading', 'writing'])
 
+    print()
     print(output)
 
     # >
