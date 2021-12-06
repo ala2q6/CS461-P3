@@ -35,12 +35,18 @@ if (__name__ == '__main__'):
     # Training <
     nn.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
-    nn.fit(xTrain, yTrain, validation_split = 0.15, batch_size = 32, epochs = 100)
+    nn.fit(validation_split = 0.15,
+           x = xTrain, y = yTrain,
+           batch_size = 32,
+           epochs = 10,
+           verbose = 2)
 
     # >
 
     # Predicting <
-
+    yPred = nn.predict(xTest)
+    np.set_printoptions(precision = 2)
+    print(np.concatenate((yPred.reshape(len(yPred),1), yTest.reshape(len(yTest),1)),1))
 
     # >
 
